@@ -387,7 +387,7 @@ class ModelManager implements ModelManagerInterface, LockInterface
         }
 
         // the entities is not managed
-        if (!$entity /*|| !$this->getEntityManager($entity)->getUnitOfWork()->isInIdentityMap($entity) // commented for perfomance concern */) {
+        if (!$entity || !$this->getEntityManager($entity)->getUnitOfWork()->isInIdentityMap($entity)) {
             return;
         }
 
